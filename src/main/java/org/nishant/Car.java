@@ -1,20 +1,31 @@
 package org.nishant;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Car {
-    int numCyl;
-    int cc;
+    Integer numCyl;
+    Integer cc;
     String manufacturer;
-    boolean turbo;
-    int safetyRating;
+    Boolean turbo;
+    Integer safetyRating;
     String name;
 
     public Car(Integer numCyl, Integer cc, String manufacturer, Boolean turbo, Integer safetyRating, String name) {
-        this.numCyl = numCyl!=null?numCyl:4;
-        this.cc = cc!=null?cc:1499;
-        this.manufacturer = manufacturer!=null?manufacturer:"Volkswagen";
-        this.turbo = turbo!=null?turbo:true;
-        this.safetyRating = safetyRating!=null?safetyRating:4;
-        this.name = name!=null?name:"Virtus";
+        this.numCyl = numCyl;
+        this.cc = cc;
+        this.manufacturer = manufacturer;
+        this.turbo = turbo;
+        this.safetyRating = safetyRating;
+        this.name = name;
+    }
+    public Car(){
+        this.numCyl = 4;
+        this.cc = 1499;
+        this.manufacturer = "Volkswagen";
+        this.turbo = true;
+        this.safetyRating = 4;
+        this.name = "Virtus";
     }
 
 
@@ -63,5 +74,13 @@ public class Car {
 
     public void setNumCyl(int numCyl) {
         this.numCyl = numCyl;
+    }
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(manufacturer + " " +name+"\n");
+        sb.append(cc+" cc "+numCyl+" Cylinder "+(turbo?" turbocharged":"")+"\n");
+        sb.append("Safety Rating : "+safetyRating);
+        return sb.toString();
     }
 }
