@@ -41,7 +41,7 @@ public class Api {
         return car;
     }
     @GetMapping("api/v1/sendmail/to/{recipient}")
-    public Car mailto(String recipient){
+    public Car mailto(@PathVariable String recipient){
         mail.sendMail(recipient);
         return car;
     }
